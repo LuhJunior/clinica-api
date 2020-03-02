@@ -1,9 +1,9 @@
 import RegraDiario from './RegraDiario';
-import Dia from '../utils/Dia';
-import RegraTipo from '../utils/RegraTipo';
+import Dia from '../../utils/Dia';
+import RegraTipo from '../../utils/RegraTipo';
 
 export default class RegraSemanal extends RegraDiario {
-    dias: Dia[];
+    public dias: Dia[];
     
     constructor (dias: Dia[], horarioInicio: string, horarioTermino: string) {
         super(horarioInicio, horarioTermino);

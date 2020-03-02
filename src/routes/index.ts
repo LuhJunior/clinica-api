@@ -1,4 +1,4 @@
-import regraRoutes from './RegraRoutes';
+import regraRoutes from './regraRoutes';
 
 export default {
     regraRoutes,

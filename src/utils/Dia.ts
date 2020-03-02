@@ -1,4 +1,5 @@
 export const dias = [
+    'DOMINGO',
     'SEGUNDA',
     'TERCA',
     'QUARTA',
@@ -8,6 +9,7 @@ export const dias = [
 ];
 
 enum Dia {
+    DOMINGO,
     SEGUNDA,
     TERCA,
     QUARTA,

@@ -1,6 +1,8 @@
-import { check, param } from 'express-validator';
+import { check, param, query } from 'express-validator';
 
 import { Tipos } from '../../utils/RegraTipo';
+
+import { dateValidator, hourValidator } from '../../utils/validators';
 
 export default {
     post: [
@@ -10,14 +12,17 @@ export default {
             .isIn(Tipos),
         check('horario.inicio')
             .notEmpty()
-            .isString(),
+            .isString()
+            .custom(hourValidator),
         check('horario.termino')
             .notEmpty()
-            .isString(),
+            .isString()
+            .custom(hourValidator),
         check('dia')
             .optional()
             .notEmpty()
-            .isString(),
+            .isString()
+            .custom(dateValidator),
         check('dias')
             .optional()
             .notEmpty()
@@ -28,6 +33,16 @@ export default {
             .notEmpty()
             .isInt()
             .toInt(),
+    ],
+    getByInterval: [
+        query('dataInicio')
+            .notEmpty()
+            .isString()
+            .custom(dateValidator),
+        query('dataFim')
+            .notEmpty()
+            .isString()
+            .custom(dateValidator),
     ],
     delete: [
         param('id')

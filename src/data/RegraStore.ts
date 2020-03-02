@@ -1,6 +1,7 @@
 import path from 'path';
 import JsonStore from '../utils/JsonStore';
 import RegraInterface from '../utils/RegraInterface';
+import config from '../config';
 
 class RegraStore {
     path: string;
@@ -33,12 +34,16 @@ class RegraStore {
         return JSON.parse(await JsonStore.getJson(this.path));
     }
 
-    delete = async (id: number): Promise<RegraInterface> => {
+    delete = async (id: number): Promise<RegraInterface | Object> => {
         const data = JSON.parse(await JsonStore.getJson(this.path));
-        const regraRemovida = data.splice(data.findIndex((regra: RegraInterface) => regra.id === id), 1);
-        await JsonStore.insertJson(this.path, JSON.stringify(data));
-        return regraRemovida;
+        const index = data.findIndex((regra: RegraInterface) => regra.id === id);
+        if (index !== -1) {
+            const regraRemovida = data.splice(data.findIndex((regra: RegraInterface) => regra.id === id), 1);
+            await JsonStore.insertJson(this.path, JSON.stringify(data));
+            return regraRemovida[0];
+        }
+        return {};
     }
 };
 
-export default new RegraStore(path.join(__dirname, '/store/data.json'));
+export default new RegraStore(path.join(__dirname, config.env === 'test' ? '/store/data_test.json' : '/store/data.json'));

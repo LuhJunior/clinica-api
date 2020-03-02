@@ -29,6 +29,16 @@ class RegraController {
             return next(e);
         }
     }
+
+    public async findByInterval (req: Request, res: Response, next: NextFunction): Promise<Response | void> {
+        try {
+            const data = await RegraService.findByInterval(req.query.dataInicio, req.query.dataFim);
+            return res.status(200).send({ ok: true, data });
+        } catch (e) {
+            return next(e);
+        }
+    }
+
     public async delete (req: Request, res: Response, next: NextFunction): Promise<Response | void> {
         try {
             const data = await RegraService.destroy(parseInt(req.params.id));

@@ -1,8 +1,8 @@
 import RegraDiario from './RegraDiario';
-import RegraTipo from '../utils/RegraTipo';
+import RegraTipo from '../../utils/RegraTipo';
 
 export default class RegraDia extends RegraDiario {
-    dia: Date;
+    public dia: Date;
     
     constructor (dia: Date, horarioInicio: string, horarioTermino: string) {
         super(horarioInicio, horarioTermino);
