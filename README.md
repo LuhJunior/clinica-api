@@ -1,19 +1,27 @@
 # Clinica API
 Uma API gerenciamento de horários de uma clínica.
 
-# Compilação
+## Compilação
 
-Para compilar é necessário possuir o gerenciador de pacotes npm ou yarn 
+Para compilar é necessário possuir o gerenciador de pacotes [**npm**](https://www.npmjs.com) ou [**yarn**](https://yarnpkg.com) 
 e executará os seguintes comandos.
 - npm i
 - npm run build 
 - npm start
 
-# Rotas da API
+## Rotas da API
 
-## Criação de regra.
+* **POST** /regra
+* **GET** /regra/:id
+* **GET** /regra
+* **GET** /regra/horarios
+* **DELETE** /regra/:id
 
-### POST /api/regra
+## Descrição das rotas
+
+#### ***Criação de regra***
+
+**POST** /api/regra
 
 ```
 body {
@@ -27,20 +35,20 @@ body {
 }
 ```
 
-## Pegar todas as regras.
+#### ***Pegar todas as regras***
 
-### GET /api/regra
+**GET** /api/regra
 
 
-## Pegar um regra.
+#### ***Pegar um regra***
 
-### GET /api/regra/:id
+**GET** /api/regra/:id
 
-id - um inteiro
+*id - inteiro*
 
-## Pegar Horários disponíveis.
+#### ***Pegar Horários disponíveis***
 
-### GET /api/regra/horarios
+**GET** /api/regra/horarios
 
 ```
 query {
@@ -49,19 +57,19 @@ query {
 }
 ```
 
-## Deletar uma regra.
+#### ***Deletar uma regra***
 
-### DELETE /api/regra/:id
+**DELETE** /api/regra/:id
 
-id - um inteiro
+*id - inteiro*
 
-# Exemplos de Request
+## Exemplos de Request
 
-## Criação de regra para um dia especifico.
+#### ***Criação de regra para um dia especifico***
 
-### POST /api/regra
+**POST** /api/regra
 
-Body
+***Body***
 
 ```
 {
@@ -73,7 +81,7 @@ Body
 	}
 }
 ```
-Retorno
+***Retorno***
 
 ```
 {
@@ -89,11 +97,12 @@ Retorno
   }
 }
 ```
-## Criação de regra para todos os dias.
+#### ***Criação de regra para todos os dias***
 
-### POST /api/regra
+**POST** /api/regra
 
-Body:
+***Body***
+
 ```
 {
 	"tipo": "DIARIO",
@@ -104,7 +113,7 @@ Body:
 }
 ```
 
-Retorno:
+***Retorno***
 
 ```
 {
@@ -120,9 +129,9 @@ Retorno:
 }
 ```
 
-## Criação de regra alguns dias da semana.
+#### ***Criação de regra alguns dias da semana***
 
-### POST /api/regra
+**POST** /api/regra
 
 Body:
 
@@ -140,7 +149,7 @@ Body:
 }
 ```
 
-Retorno:
+***Retorno***
 
 ```
 {
@@ -160,9 +169,9 @@ Retorno:
 }
 ```
 
-## Buscar todas as regras cadastradas.
+#### ***Buscar todas as regras cadastradas***
 
-### GET /api/regra
+**GET** /api/regra
 
 Retorno:
 
@@ -203,13 +212,13 @@ Retorno:
 }
 ```
 
-## Buscar uma regra cadastrada.
+#### ***Buscar uma regra cadastrada***
 
-### GET /api/regra/:id
+**GET** /api/regra/:id
 
-id - 3
+*id = 3*
 
-Retorno:
+***Retorno***
 
 ```
 {
@@ -229,11 +238,11 @@ Retorno:
 }
 ```
 
-## Buscar Horários disponíveis.
+#### ***Buscar Horários disponíveis***
 
-### GET /api/regra/horarios
+**GET** /api/regra/horarios
 
-Query:
+***Query***
 
 ```
 {
@@ -242,7 +251,7 @@ Query:
 }
 ```
 
-Retorno:
+***Retorno***
 
 ```
 {
@@ -261,13 +270,13 @@ Retorno:
 }
 ```
 
-## Deletar uma regra cadastrada.
+#### ***Deletar uma regra cadastrada***
 
-### DELETE /api/regra/
+**DELETE** /api/regra/
 
-id - 1
+*id = 1*
 
-Retorno: regra deletada
+***Retorno: regra deletada***
 
 ```
 {
