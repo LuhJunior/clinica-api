@@ -40,7 +40,7 @@ body {
 **GET** /api/regra
 
 
-### ***Pegar um regra***
+### ***Pegar uma regra***
 
 **GET** /api/regra/:id
 
