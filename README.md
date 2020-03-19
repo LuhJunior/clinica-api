@@ -19,45 +19,45 @@ e executará os seguintes comandos.
 
 ## Descrição das rotas
 
-#### ***Criação de regra***
+### ***Criação de regra***
 
 **POST** /api/regra
 
 ```
 body {
-    tipo - uma string que pode ser "DIA", "DIARIO" ou "SEMANAL"
-    dia - uma string no formato dd-mm-aaaa ou d-mm-aaa ou dd-m-aaaa ou d-m-aaaa
-    dias - um array com strings podendo ser "SEGUNDA", "TERCA", "QUARTA", "QUINTA", "SEXTA", "SABADO"
-    horario: {
-		inicio - uma string no formato  hh:mm ou h:mm
-		termino - uma string no formato  hh:mm ou h:mm
-	}
+  tipo - uma string que pode ser "DIA", "DIARIO" ou "SEMANAL"
+  dia - uma string no formato dd-mm-aaaa ou d-mm-aaa ou dd-m-aaaa ou d-m-aaaa
+  dias - um array com strings podendo ser "SEGUNDA", "TERCA", "QUARTA", "QUINTA", "SEXTA", "SABADO"
+  horario: {
+    inicio - uma string no formato  hh:mm ou h:mm
+    termino - uma string no formato  hh:mm ou h:mm
+  }
 }
 ```
 
-#### ***Pegar todas as regras***
+### ***Pegar todas as regras***
 
 **GET** /api/regra
 
 
-#### ***Pegar um regra***
+### ***Pegar um regra***
 
 **GET** /api/regra/:id
 
 *id - inteiro*
 
-#### ***Pegar Horários disponíveis***
+### ***Pegar Horários disponíveis***
 
 **GET** /api/regra/horarios
 
 ```
 query {
-    dataInicio - uma string no formato dd-mm-aaaa ou d-mm-aaa ou dd-m-aaaa ou d-m-aaaa
-    dataFim - uma string no formato dd-mm-aaaa ou d-mm-aaa ou dd-m-aaaa ou d-m-aaaa
+  dataInicio - uma string no formato dd-mm-aaaa ou d-mm-aaa ou dd-m-aaaa ou d-m-aaaa
+  dataFim - uma string no formato dd-mm-aaaa ou d-mm-aaa ou dd-m-aaaa ou d-m-aaaa
 }
 ```
 
-#### ***Deletar uma regra***
+### ***Deletar uma regra***
 
 **DELETE** /api/regra/:id
 
@@ -65,7 +65,7 @@ query {
 
 ## Exemplos de Request
 
-#### ***Criação de regra para um dia especifico***
+### ***Criação de regra para um dia especifico***
 
 **POST** /api/regra
 
@@ -73,12 +73,12 @@ query {
 
 ```
 {
-    "tipo": "DIA",
-	"dia": "01-03-2020",
-	"horario": {
-		"inicio": "17:00",
-		"termino": "20:00"
-	}
+  "tipo": "DIA",
+    "dia": "01-03-2020",
+    "horario": {
+      "inicio": "17:00",
+      "termino": "20:00"
+    }
 }
 ```
 ***Retorno***
@@ -97,7 +97,7 @@ query {
   }
 }
 ```
-#### ***Criação de regra para todos os dias***
+### ***Criação de regra para todos os dias***
 
 **POST** /api/regra
 
@@ -105,11 +105,11 @@ query {
 
 ```
 {
-	"tipo": "DIARIO",
-	"horario": {
-		"inicio": "22:00",
-		"termino": "23:00"
-	}
+  "tipo": "DIARIO",
+  "horario": {
+    "inicio": "22:00",
+    "termino": "23:00"
+  }
 }
 ```
 
@@ -129,7 +129,7 @@ query {
 }
 ```
 
-#### ***Criação de regra alguns dias da semana***
+### ***Criação de regra alguns dias da semana***
 
 **POST** /api/regra
 
@@ -137,15 +137,15 @@ Body:
 
 ```
 {
-	"tipo": "SEMANAL",
-	"dias": [
-		"SEGUNDA",
-		"TERCA"
-	],
-	"horario": {
-		"inicio": "15:00",
-		"termino": "16:00"
-	}
+  "tipo": "SEMANAL",
+  "dias": [
+    "SEGUNDA",
+    "TERCA"
+  ],
+  "horario": {
+    "inicio": "15:00",
+    "termino": "16:00"
+  }
 }
 ```
 
@@ -169,7 +169,7 @@ Body:
 }
 ```
 
-#### ***Buscar todas as regras cadastradas***
+### ***Buscar todas as regras cadastradas***
 
 **GET** /api/regra
 
@@ -212,7 +212,7 @@ Retorno:
 }
 ```
 
-#### ***Buscar uma regra cadastrada***
+### ***Buscar uma regra cadastrada***
 
 **GET** /api/regra/:id
 
@@ -238,7 +238,7 @@ Retorno:
 }
 ```
 
-#### ***Buscar Horários disponíveis***
+### ***Buscar Horários disponíveis***
 
 **GET** /api/regra/horarios
 
@@ -246,8 +246,8 @@ Retorno:
 
 ```
 {
-    "dataInicio": "01-03-2020",
-    "dataFim": "01-03-2020"
+  "dataInicio": "01-03-2020",
+  "dataFim": "01-03-2020"
 }
 ```
 
@@ -270,7 +270,7 @@ Retorno:
 }
 ```
 
-#### ***Deletar uma regra cadastrada***
+### ***Deletar uma regra cadastrada***
 
 **DELETE** /api/regra/
 
